@@ -19,13 +19,13 @@
       <div class="content_2">
         <span style="color:#08FCFF">成为销售合作伙伴：</span>
  智天渠道化市场战略以及全方位的渠道体系支持，期待与您携手
-        <div class="btn_1">立即申请</div>
+        <div class="btn_1" @click="$router.push({name:'Pspartners'})">立即申请</div>
       </div>
 
        <div class="content_2">
         <span style="color:#08FCFF">成为供应合作伙伴：</span>
  智天渠道化市场战略以及全方位的渠道体系支持，期待与您携手
-        <div class="btn_1">立即申请</div>
+        <div class="btn_1" @click="$router.push({name:'SupplyPartners'})">立即申请</div>
       </div>
     </div>
   </div>
@@ -137,7 +137,7 @@ export default {
       .btn_1 {
         width: 120px;
         height: 24px;
-        background: rgba(0, 0, 0, 0.6);
+        background: #181828;
         border: 1px solid #ececec;
         float: right;
         text-align: center;

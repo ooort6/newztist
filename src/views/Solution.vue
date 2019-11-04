@@ -10,7 +10,7 @@
         <li @click="sx()">网络数据分析</li>
         <li @click="nx()">内容数据分析</li>
         <li @click="yw()">业务内容分析</li>
-        <li>其他</li>
+        <li @click="$router.push({name:'others'})">其他</li>
       </ul>
     </div>
     <div class="content">

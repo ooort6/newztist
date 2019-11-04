@@ -99,6 +99,12 @@ export default new Router({
       name: 'Presale',
       component: () => import(/* webpackChunkName: "about" */ './views/Presale.vue')
     },
+   
+    {
+      path: '/Aftersale',
+      name: 'Aftersale',
+      component: () => import(/* webpackChunkName: "about" */ './views/Aftersale.vue')
+    },
     {
       path: '/Wwcooper',
       name: 'Wwcooper',
@@ -108,7 +114,34 @@ export default new Router({
       path: '/Consultation',
       name: 'Consultation',
       component: () => import(/* webpackChunkName: "about" */ './views/Consultation.vue')
-    }
+    },
+    {
+      path: '/Pspartners',
+      name: 'Pspartners',
+      component: () => import(/* webpackChunkName: "about" */ './views/Pspartners.vue')
+    },
+    {
+      path: '/SupplyPartners',
+      name: 'SupplyPartners',
+      component: () => import(/* webpackChunkName: "about" */ './views/SupplyPartners.vue')
+    },
+    {
+      path: '/AfterConsultation',
+      name: 'AfterConsultation',
+      component: () => import(/* webpackChunkName: "about" */ './views/AfterConsultation.vue')
+    },
+    // {
+    //   path: '/formDemo',
+    //   name: 'formDemo',
+    //   component: () => import(/* webpackChunkName: "about" */ './views/formDemo.vue')
+    // },
+
+    
+    
+
+
+
+    
      
 
     

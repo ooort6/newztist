@@ -2,7 +2,7 @@
   <div class="header">
      <div id="nav">
       <div class="logo">
-        <img src="../assets/image/logo.png" alt="">
+        <img src="../assets/image/logo2.png" alt="">
       </div>
       <div class="nav_r">
   <router-link to="/">首页</router-link> 

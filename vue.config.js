@@ -136,9 +136,9 @@ module.exports = {
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
     proxy: {
         '/user': {
-            // target: 'http://192.168.1.31:8082',
-            // target: 'http://ztht.ztist.com',
-            target: 'https://api.apiopen.top',
+            // target: 'http://192.168.1.8:8082',
+            target: 'http://ztht.ztist.com',
+            // target: 'https://api.apiopen.top',
 
             changeOrigin: true,
             // ws: true,

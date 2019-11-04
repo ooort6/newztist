@@ -1,16 +1,29 @@
 <template>
-  <div class="download">
-    <div class="header1">
-      <div class="nav">
-        <Header />
-      </div>
-      <div class="content1">
-          <span class="span_1">智天资料下载区：</span>
-            <ul>
+  <div class="formDemo">
+    <div class="content">
+      <Row>
+        <i-col span="6" offset="2">
+          <div class="i-col" :class="{active:shows==1}" @click="oneshow()">
+            <span>资料下载</span>
+          </div>
+        </i-col>
+        <i-col span="6" offset="1" style="display:none">
+          <div class="i-col" :class="{active:shows==2}" @click="twoshow()">
+            <span>解决方案</span>
+          </div>
+        </i-col>
+        <i-col span="6" offset="1" style="display:none">
+          <div class="i-col" :class="{active:shows==3}" @click="threeshow()">
+            <span>第三方报告</span>
+          </div>
+        </i-col>
+      </Row>
+      <br />
+      <ul>
         <li v-for="item in items" v-bind:key="item.id">
-          <!-- <span class="jiantou"></!--> 
+          <span class="jiantou"></span>
           <span class="ztext">{{item.file_name}}</span>
-          <a :href="url+item.file_url" style=" display:block;float:right; margin-top:-0.5%; margin-right:26% ;  z-index:999" ><span style="color:#00E2FF">下载>></span></a>
+          <a :href="url+item.file_url" style=" display:block;float:right; margin-top:0%; margin-right:3% ;  z-index:999" ><span style="color:#2d8cf0">下载</span></a>
           <!-- <img class="zimg" src="@/static/image/下载.png" alt /> -->
           <span class="zdate">{{item.upload_date|formatDate}}</span>
         </li>
@@ -18,23 +31,19 @@
       <Row type="flex" justify="center">
         <Page class="page" :total="dataCount" @on-change="changepage" />
       </Row>
-      </div>
     </div>
-
-    <!-- <div class="content3">
-  
-    </div> -->
   </div>
 </template>
+
 <script>
-import Header from "@/components/Header.vue";
 export default {
-  name: "download",
-  components: {
-    Header
-  },
+  name: "formDemo",
   data() {
     return {
+      color1: "#D8D8D8",
+      color2: "#F2F2F2",
+      shows: 1,
+      date: "2019-6-4",
       items: [],
       dataCount: 0,
       pageSize: 8,
@@ -45,13 +54,6 @@ export default {
       company: 1,
       url:this.$common.getFileUrl()
     };
-  },
-  watch: {
-    //监听路由变化
-    $route(to, from) {
-      // to , from 分别表示从哪跳转到哪，都是一个对象
-      // to.path  ( 表示的是要跳转到的路由的地址 eg: /home );
-    }
   },
   filters: {
     formatDate: function(value) {
@@ -70,17 +72,23 @@ export default {
       return y + "-" + MM + "-" + d;
     }
   },
-  created(){
+  created() {
+    // let aa=[{id:1,class:2},{id:2,class:3},{id:3,class:4}];
+    // this.items=aa;
     this.action();
-  },
-  mounted() {
-    const _this = this;
+    console.log(this.url)
   },
   methods: {
-    // activeShow(index) {
-    //   this.ins = index;
-    // }
-      action() {
+    oneshow() {
+      this.shows = 1;
+    },
+    twoshow() {
+      this.shows = 2;
+    },
+    threeshow() {
+      this.shows = 3;
+    },
+    action() {
       const _this = this;
       let params = new URLSearchParams();
       params.append("pageNum", _this.pageNum);
@@ -118,40 +126,30 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
-.download {
-  min-width: 1500px;
-  background: #181828;
-  .header1 {
-    height: 1000px;
-    background: url("../assets/image/bi1.png") no-repeat;
-    background-size: 100% 110%;
-    // padding-top: 1rem;
-    .content1{
-      // height: 200px;
-      // background: red;
-      .span_1{
-font-size:24px;
-font-family:"SourceHanSansCN";
-font-weight:500;
-color:rgba(255,255,255,1);
-margin-left: 20%;
-margin-top: 62px;
-margin-bottom: 61px;
-display: block;
-      }
-        ul {
+.formDemo {
+  // position: absolute;
+  padding-top: 5%;
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
+  .content {
+    width: 60%;
+    height: 100%;
+    padding: 30px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  ul {
     margin-top: 2%;
     margin-bottom: 2%;
     // width:
     margin-left: 8%;
     li {
-      color: #fff;
-      
-list-style:none;
       height: 54px;
       width: 90%;
-      // background: #f2f2f2;
+      background: #f2f2f2;
       margin-bottom: 1%;
       .jiantou {
         width: 7px;
@@ -162,15 +160,13 @@ list-style:none;
         margin-left: 20px;
       }
       .ztext {
-        margin-left: 18%;
+        margin-left: 8%;
         margin-top: -0.5%;
-          float: left;
-          width: 20%;
       }
       .zdate {
-        float: left;
-        margin-top: -0.5%;
-        margin-left: 10%;
+        float: right;
+        margin-top: -3%;
+        margin-right: 10%;
       }
       .zimg {
         display:block;
@@ -180,17 +176,29 @@ z-index:-1
       }
     }
   }
-    }
-  }
+  .i-col {
+    text-align: center;
 
-  // .content3 {
-  //   height: 2020px;
-  //   // width: 74%;
-  //   // background: red;
-  //   margin: 0 auto;
-  //   padding-top: 4.78%;
-  //   // text-align: center;
-    
-  // }
+    margin-right: 1%;
+    background: #f2f2f2;
+    width: 254px;
+    height: 54px;
+  }
+  span {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "PingFang-SC-Medium";
+    font-size: 18px;
+    color: #7e7e7e;
+    cursor: pointer;
+  }
+  .active {
+    background: #d8d8d8;
+  }
+  .page {
+  }
 }
 </style>
+

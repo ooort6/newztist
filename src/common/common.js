@@ -25,8 +25,8 @@ export default {
     install(vm){
         vm.prototype.$common={
             getUrl(){
-                // return "user/";
-                return "https://api.apiopen.top";
+                return "user/";
+                // return "https://api.apiopen.top";
             },
             getFileUrl(){
                 return "http://www.ztist.com/M01/";

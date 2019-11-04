@@ -7,7 +7,7 @@
     </div>
 
     <div class="content1">
-      <span class="span_1">产品、项目售前咨询单</span>
+      <span class="span_1">售前合作伙伴</span>
       <div style="width:40%;margin:0 auto;padding:20px;">
         <Form
           ref="formValidate"
@@ -81,34 +81,45 @@
 
           <Row style="margin-bottom:5%">
             <span class="span_2"></span>
-            <span class="span_3">产品咨询</span>
+            <span class="span_3">合作意向</span>
+          </Row>
+          <!-- <Row>
+          <Col span="24">-->
+          <Row>
+            <span
+              style="font-size:16px;
+              font-family:Source Han Sans CN;
+              color:rgba(255,255,255,1);
+              margin-bottom:2%;
+              display:block"
+            >合作方式(可多选）</span>
           </Row>
           <Row>
-            <Col span="15">
-              <FormItem label="请选择意向产品：" prop="product_type" :label-width="150">
-                <Select v-model="formValidate.product_type">
-                  <Option value="1">智天恶意代码防护</Option>
-                  <Option value="2">智天智能DNS</Option>
-                  <Option value="3">网络流量分析及管理系统</Option>
-                  <Option value="4">智天网络内容审核</Option>
-                  <Option value="5">综合控制系统</Option>
-                  <Option value="6">三维全景GIS系统</Option>
-                  <Option value="7">安全管理平台</Option>
-                </Select>
-              </FormItem>
-            </Col>
+          <FormItem label   prop="cooperation_type">
+            <CheckboxGroup
+              v-model="formValidate.cooperation_type"
+            
+            >
+              <Checkbox style="color:#fff;font-size:16px"  label="1">项目合作</Checkbox>
+              <Checkbox style="color:#fff;font-size:16px"  label="2">产品代理</Checkbox>
+              <Checkbox style="color:#fff;font-size:16px"  label="3">行业代理</Checkbox>
+              <Checkbox style="color:#fff;font-size:16px"  label="4">区域代理</Checkbox>
+            </CheckboxGroup>
+          </FormItem>
           </Row>
+          <!-- </Col>
+          </Row>-->
           <Row>
             <span style="font-size:16px;color:#fff;margin-bottom:3%;display:block">
-              <span style="color:red">*</span> 应用场景希望解决的问题：
+              <span style="color:red">*</span>您的优势
             </span>
           </Row>
-          <FormItem label :label-width="0" prop="hope_solve_problem">
+          <FormItem label :label-width="0" prop="advantage">
             <Input
-              v-model="formValidate.hope_solve_problem"
+              v-model="formValidate.advantage"
               type="textarea"
               :autosize="{minRows: 4,maxRows: 5}"
-              placeholder="请写下您希望解决的问题"
+              placeholder="简述您的优势"
             ></Input>
           </FormItem>
           <Row>
@@ -154,18 +165,18 @@
         </div>
       </div>-->
     </div>
-    <Modal v-model="modal3"  class-name="vertical-center-modal" footer-hide >
-        <img src="@/assets/image/tc.png" width="100%"  style="margin:0 auto;display:block" alt="">
-         <!-- <div slot="footer" style="background:black"> -->
-            <!-- <img src="@/assets/image/qx.png"  alt=""> -->
-        <!-- </div> -->
+    <Modal v-model="modal3" class-name="vertical-center-modal" footer-hide>
+      <img src="@/assets/image/tc.png" width="100%" style="margin:0 auto;display:block" alt />
+      <!-- <div slot="footer" style="background:black"> -->
+      <!-- <img src="@/assets/image/qx.png"  alt=""> -->
+      <!-- </div> -->
     </Modal>
   </div>
 </template>
 <script>
 import Header from "@/components/Header.vue";
 export default {
-  name: "Consultation",
+  name: "Pspartners",
   components: {
     Header
   },
@@ -180,26 +191,25 @@ export default {
       }
     };
     return {
-       modal3: false,
+      modal3: false,
       formValidate: {
         name: "",
         sex: "",
         email: "",
         phone: "",
         company: "",
-        product_type: "",
-        form_type: 3,
-        product_type: "",
+        form_type: 2,
         our_company_type: 1,
-        hope_solve_problem: "",
-        company_address: ""
+        advantage: "",
+        company_address: "",
+        cooperation_type:[]
       },
       ruleValidate: {
         name: [{ required: true, message: "姓名不能为空", trigger: "blur" }],
         sex: [{ required: true, message: "性别不能为空", trigger: "blur" }],
 
-        hope_solve_problem: [
-          { required: true, message: "希望解决问题不能为空", trigger: "blur" }
+        advantage: [
+          { required: true, message: "请简述您的优势", trigger: "blur" }
         ],
         product_type: [
           { required: true, message: "请选择意向产品", trigger: "blur" }
@@ -225,7 +235,15 @@ export default {
         company_address: [
           { required: true, message: "单位地址不能为空", trigger: "blur" }
           // { type: "email", message: "请填写正确的邮箱", trigger: "blur" },
-        ]
+        ],
+        cooperation_type: [
+         { required: true, type: 'array',  message: '合作方式不能为空', trigger: 'change' },
+                        // { type: 'array',  message: '合作方式不能为空', trigger: 'change' }
+          // { type: "email", message: "请填写正确的邮箱", trigger: "blur" },
+        ],
+
+
+        
       }
     };
   },
@@ -254,19 +272,19 @@ export default {
             "our_company_type",
             _this.formValidate.our_company_type
           );
-          params.append("product_type", _this.formValidate.product_type);
+          params.append("cooperation_type", _this.formValidate.cooperation_type);
           params.append(
-            "hope_solve_problem",
-            _this.formValidate.hope_solve_problem
+            "advantage",
+            _this.formValidate.advantage
           );
           this.$axios({
             method: "post",
             url: api,
             data: params
           }).then(function(res) {
-            if(res.data.status=="000"){
+            if (res.data.status == "000") {
               // _this.$Message.info(res.data.message);
-              _this.modal3=true;
+              _this.modal3 = true;
               _this.$refs[name].resetFields();
             }
             console.log(res);
@@ -274,13 +292,13 @@ export default {
 
           console.log(_this.formValidate);
         } else {
-           _this.$Message.info(res.data.message);
+          _this.$Message.info(res.data.message);
         }
       });
     },
 
     handleReset(name) {
-          //  this.modal3=true;
+      //  this.modal3=true;
       this.$refs[name].resetFields();
     },
     init() {
@@ -297,7 +315,7 @@ export default {
       params.append("our_company_type", 1);
       params.append("product_type", 1);
       params.append("hope_solve_problem", "21");
-   
+
       this.$axios({
         method: "post",
         url: api,
@@ -313,9 +331,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-   /deep/.ivu-modal-mask {
-      background: rgba(0,0,0,0.7)
-    }
+/deep/.ivu-modal-mask {
+  background: rgba(0, 0, 0, 0.7);
+}
 .cooperation {
   min-width: 1500px;
   background: url("../assets/image/sheetbg.png") no-repeat;
@@ -328,7 +346,7 @@ export default {
   //           top: 0;
   //       }
   //   }
- 
+
   .header1 {
     height: 100px;
     // background: url("../assets/image/rhgm.png") no-repeat;
@@ -393,15 +411,15 @@ export default {
         color: #fff;
       }
     }
-  
-    .vertical-center-modal{
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        .ivu-modal{
-            top: 0;
-        }
+    .vertical-center-modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ivu-modal {
+        top: 0;
+      }
     }
     .span_1 {
       display: block;
@@ -442,7 +460,6 @@ export default {
       color: #fff;
       border-radius: 10px;
       cursor: pointer;
-
     }
 
     .content_2 {

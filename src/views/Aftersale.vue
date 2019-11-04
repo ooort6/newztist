@@ -5,17 +5,17 @@
         <Header />
       </div>
       <div class="title">
-        <!-- <p class="p_1">如何购买</p>
+        <p class="p_1">售后服务</p>
         <p class="p_3"></p>
-        <p class="p_2">智天科技售前客服代表与资深销售顾问联手为您提供专业的购买咨询服务</p> -->
+        <p class="p_2">智天科技售后客服代表与资深销售顾问联手为您提供专业的购买咨询服务</p>
       </div>
     </div>
 
     <div class="content1">
-      <span class="span_1">
+      <!-- <span class="span_1">
         本页面仅受理售前的购买咨询，如需售后帮助，请点击
         <a href style="color:#1EF0FE">链接</a>
-      </span>
+      </span> -->
       <div class="content_2">
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/jt.png" alt=""></p>
@@ -25,7 +25,7 @@
           <p class="p_3">QQ: 31756964995</p>
         </div>
         <div class="content_3">
-          <p class="p_1"><img src="@/assets/image/zx.png" alt=""></p>
+          <p class="p_1"><img src="@/assets/image/zx1.png" alt=""></p>
 
           <p class="p_2" style="margin-bottom:70px">
             就你感兴趣的产品或解决方案提交咨询
@@ -33,7 +33,7 @@
             给您答复
           </p>
 
-          <span class="content_4" @click="$router.push({name:'Consultation'})">填写咨询表单</span>
+          <span class="content_4" @click="$router.push({name:'AfterConsultation'})">填写咨询表单</span>
         </div>
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/dh.png" alt=""></p>
@@ -52,7 +52,7 @@
 <script>
 import Header from "@/components/Header.vue";
 export default {
-  name: "Presale",
+  name: "Aftersale",
   components: {
     Header
   },
@@ -72,7 +72,7 @@ export default {
   background: #181828;
   .header1 {
     height: 520px;
-    background: url("../assets/image/rhgm.png") no-repeat;
+    background: url("../assets/image/rhgm1.png") no-repeat;
     background-size: 100% 100%;
     // padding-top: 1rem;
 

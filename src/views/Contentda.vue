@@ -71,7 +71,7 @@
           >结合网络数据分析的数据采集技术以及内容分析算法，可及时预警内部人员滥用网络，对外发送敏感文件或不良内容。</p>
 
           <p class="p_6">
-            <span>了解详情>></span>
+            <span @click="$router.push({name:'examine'})">了解详情>></span>
           </p>
         </div>
       </div>

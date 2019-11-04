@@ -7,7 +7,7 @@
     </div>
 
     <div class="content1">
-      <span class="span_1">产品、项目售前咨询单</span>
+      <span class="span_1">产品、项目售后咨询单</span>
       <div style="width:40%;margin:0 auto;padding:20px;">
         <Form
           ref="formValidate"
@@ -85,7 +85,7 @@
           </Row>
           <Row>
             <Col span="15">
-              <FormItem label="请选择意向产品：" prop="product_type" :label-width="150">
+              <FormItem label="请选择所购产品：" prop="product_type" :label-width="150">
                 <Select v-model="formValidate.product_type">
                   <Option value="1">智天恶意代码防护</Option>
                   <Option value="2">智天智能DNS</Option>
@@ -98,9 +98,20 @@
               </FormItem>
             </Col>
           </Row>
+           <Row>
+              <FormItem prop="history_project_name"  label="历史项目名称："  :label-width="150">
+                <Input
+                  style="background-color:transparent"
+                  placeholder="若有，请填写项目名称"
+                 
+                 
+                  v-model="formValidate.history_project_name"
+                ></Input>
+              </FormItem>
+            </Row>
           <Row>
             <span style="font-size:16px;color:#fff;margin-bottom:3%;display:block">
-              <span style="color:red">*</span> 应用场景希望解决的问题：
+              <span style="color:red">*</span> 希望解决的问题：
             </span>
           </Row>
           <FormItem label :label-width="0" prop="hope_solve_problem">
@@ -108,7 +119,7 @@
               v-model="formValidate.hope_solve_problem"
               type="textarea"
               :autosize="{minRows: 4,maxRows: 5}"
-              placeholder="请写下您希望解决的问题"
+              placeholder="简述产品或项目在后期运营中所遇到的问题"
             ></Input>
           </FormItem>
           <Row>
@@ -188,11 +199,12 @@ export default {
         phone: "",
         company: "",
         product_type: "",
-        form_type: 3,
+        form_type:4,
         product_type: "",
         our_company_type: 1,
         hope_solve_problem: "",
-        company_address: ""
+        company_address: "",
+        history_project_name:''
       },
       ruleValidate: {
         name: [{ required: true, message: "姓名不能为空", trigger: "blur" }],
@@ -202,7 +214,7 @@ export default {
           { required: true, message: "希望解决问题不能为空", trigger: "blur" }
         ],
         product_type: [
-          { required: true, message: "请选择意向产品", trigger: "blur" }
+          { required: true, message: "请选择所购产品", trigger: "blur" }
         ],
         phone: [
           //   { required: true, message: "手机号码不能为空", trigger: "blur" },
@@ -259,6 +271,11 @@ export default {
             "hope_solve_problem",
             _this.formValidate.hope_solve_problem
           );
+  params.append(
+            "history_project_name",
+            _this.formValidate.history_project_name
+          );
+          
           this.$axios({
             method: "post",
             url: api,
@@ -372,7 +389,7 @@ export default {
   }
 
   .content1 {
-    height: 900px;
+    height: 940px;
     width: 74%;
     // background: red;
     margin: 0 auto;

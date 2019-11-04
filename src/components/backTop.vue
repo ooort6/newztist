@@ -30,7 +30,7 @@
         售前咨询
       </span>
     </div>
-    <div id="dg" class="top" style=" bottom: 518px;"  @click="$router.push({name: 'Wwcooper'})"> 
+    <div id="dg" class="top" style=" bottom: 518px;"  @click="$router.push({name: 'Aftersale'})"> 
       <img
         src="../assets/image/售后咨询.png"
         style=" position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);"
@@ -40,7 +40,7 @@
         售后咨询
       </span>
     </div>
-    <div id="dg" class="top" style=" bottom: 456px;" >
+    <div id="dg" class="top" style=" bottom: 456px;" @click="$router.push({name: 'Wwcooper'})">
       <img
         src="../assets/image/合作.png"
         style=" position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);"
@@ -60,26 +60,8 @@
         资料中心
       </span>
     </div>
-    <div id="dg" class="top1" style=" bottom: 332px;" @click="$router.push({name: 'Wwcooper'})" >
-    <!-- <div id="dg" class="top" style=" bottom: 325px;"  @click="instance('success')"> -->
+   
 
-      <img
-        src="../assets/image/联系我们.png"
-        style=" position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);"
-        alt
-      >
-      <span style="color:#333333;display:block; margin-top:70%">
-        联系我们
-      </span>
-    </div>
-    <!-- <div id="dg" class="top1" style=" bottom: 270px; ">
-      <img
-        src="../../static/image/取消.png"
-        style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"
-        alt
-      >
-
-    </div> -->
   </div>
 </template>
 <script>

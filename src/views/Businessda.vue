@@ -64,14 +64,14 @@
           </div>
         </div>
         <div class="youshi_2">
-          <p class="p_4">综合控制系统</p>
+          <p class="p_4">安全管理平台</p>
           <p
             class="p_5"
             style="margin-bottom:3%"
           >通过建立安全生产模型，实现各类安全生产相关数据的的采集及分析。推动业务流转，统计系统运行效率，预判各类风险。同时结合WEBGL技术，显示安全生产的可视化管理。</p>
 
           <p class="p_6">
-            <span>了解详情>></span>
+            <span @click="$router.push({name:'integrated'})">了解详情>></span>
           </p>
         </div>
       </div>

@@ -7,7 +7,7 @@
     </div>
 
     <div class="content1">
-      <span class="span_1">产品、项目售前咨询单</span>
+      <span class="span_1">供应合作伙伴</span>
       <div style="width:40%;margin:0 auto;padding:20px;">
         <Form
           ref="formValidate"
@@ -81,34 +81,20 @@
 
           <Row style="margin-bottom:5%">
             <span class="span_2"></span>
-            <span class="span_3">产品咨询</span>
+            <span class="span_3">合作意向</span>
           </Row>
-          <Row>
-            <Col span="15">
-              <FormItem label="请选择意向产品：" prop="product_type" :label-width="150">
-                <Select v-model="formValidate.product_type">
-                  <Option value="1">智天恶意代码防护</Option>
-                  <Option value="2">智天智能DNS</Option>
-                  <Option value="3">网络流量分析及管理系统</Option>
-                  <Option value="4">智天网络内容审核</Option>
-                  <Option value="5">综合控制系统</Option>
-                  <Option value="6">三维全景GIS系统</Option>
-                  <Option value="7">安全管理平台</Option>
-                </Select>
-              </FormItem>
-            </Col>
-          </Row>
-          <Row>
-            <span style="font-size:16px;color:#fff;margin-bottom:3%;display:block">
-              <span style="color:red">*</span> 应用场景希望解决的问题：
-            </span>
-          </Row>
-          <FormItem label :label-width="0" prop="hope_solve_problem">
+          <!-- <Row>
+          <Col span="24">-->
+
+          <!-- </Col>
+          </Row>-->
+
+          <FormItem label :label-width="0" prop="cooperation_intention">
             <Input
-              v-model="formValidate.hope_solve_problem"
+              v-model="formValidate.cooperation_intention"
               type="textarea"
               :autosize="{minRows: 4,maxRows: 5}"
-              placeholder="请写下您希望解决的问题"
+              placeholder="简述您的合作意向"
             ></Input>
           </FormItem>
           <Row>
@@ -122,50 +108,19 @@
           </Row>
         </Form>
       </div>
-
-      <!-- <div class="content_2">
-        <div class="content_3">
-          <p class="p_1"><img src="@/assets/image/jt.png" alt=""></p>
-          <p class="p_2">工作日 9:00-12:00 14:00-18:00</p>
-          <p class="p_2" style="margin-bottom:70px">客服代表一对一即时消息沟通</p>
-
-          <p class="p_3">QQ: 31756964995</p>
-        </div>
-        <div class="content_3">
-          <p class="p_1"><img src="@/assets/image/zx.png" alt=""></p>
-
-          <p class="p_2" style="margin-bottom:70px">
-            就你感兴趣的产品或解决方案提交咨询
-            问题，我们将安排专人在一个工作日内
-            给您答复
-          </p>
-
-          <span class="content_4">填写咨询表单</span>
-        </div>
-        <div class="content_3">
-          <p class="p_1"><img src="@/assets/image/dh.png" alt=""></p>
-          <p class="p_2" style="margin-bottom:70px">
-            全国统一售前服务热线，若遇线路
-            繁忙，请选择 在线交谈 进行产品
-            和服务咨询
-          </p>
-
-          <p class="p_3" style="color:#fff">021-22819090</p>
-        </div>
-      </div>-->
     </div>
-    <Modal v-model="modal3"  class-name="vertical-center-modal" footer-hide >
-        <img src="@/assets/image/tc.png" width="100%"  style="margin:0 auto;display:block" alt="">
-         <!-- <div slot="footer" style="background:black"> -->
-            <!-- <img src="@/assets/image/qx.png"  alt=""> -->
-        <!-- </div> -->
+    <Modal v-model="modal3" class-name="vertical-center-modal" footer-hide>
+      <img src="@/assets/image/tc.png" width="100%" style="margin:0 auto;display:block" alt />
+      <!-- <div slot="footer" style="background:black"> -->
+      <!-- <img src="@/assets/image/qx.png"  alt=""> -->
+      <!-- </div> -->
     </Modal>
   </div>
 </template>
 <script>
 import Header from "@/components/Header.vue";
 export default {
-  name: "Consultation",
+  name: "SupplyPartners",
   components: {
     Header
   },
@@ -180,26 +135,24 @@ export default {
       }
     };
     return {
-       modal3: false,
+      modal3: false,
       formValidate: {
         name: "",
         sex: "",
         email: "",
         phone: "",
         company: "",
-        product_type: "",
-        form_type: 3,
-        product_type: "",
+        form_type: 1,
         our_company_type: 1,
-        hope_solve_problem: "",
+        cooperation_intention: "",
         company_address: ""
       },
       ruleValidate: {
         name: [{ required: true, message: "姓名不能为空", trigger: "blur" }],
         sex: [{ required: true, message: "性别不能为空", trigger: "blur" }],
 
-        hope_solve_problem: [
-          { required: true, message: "希望解决问题不能为空", trigger: "blur" }
+        cooperation_intention: [
+          { required: true, message: "请简述您的合作意向", trigger: "blur" }
         ],
         product_type: [
           { required: true, message: "请选择意向产品", trigger: "blur" }
@@ -250,23 +203,17 @@ export default {
           params.append("company", _this.formValidate.company);
           params.append("company_address", _this.formValidate.company_address);
           params.append("form_type", _this.formValidate.form_type);
-          params.append(
-            "our_company_type",
-            _this.formValidate.our_company_type
-          );
-          params.append("product_type", _this.formValidate.product_type);
-          params.append(
-            "hope_solve_problem",
-            _this.formValidate.hope_solve_problem
-          );
+          params.append("our_company_type",_this.formValidate.our_company_type);
+          // params.append("cooperation_type", _this.formValidate.cooperation_type);
+          params.append("cooperation_intention",_this.formValidate.cooperation_intention);
           this.$axios({
             method: "post",
             url: api,
             data: params
           }).then(function(res) {
-            if(res.data.status=="000"){
+            if (res.data.status == "000") {
               // _this.$Message.info(res.data.message);
-              _this.modal3=true;
+              _this.modal3 = true;
               _this.$refs[name].resetFields();
             }
             console.log(res);
@@ -274,13 +221,13 @@ export default {
 
           console.log(_this.formValidate);
         } else {
-           _this.$Message.info(res.data.message);
+          _this.$Message.info(res.data.message);
         }
       });
     },
 
     handleReset(name) {
-          //  this.modal3=true;
+      //  this.modal3=true;
       this.$refs[name].resetFields();
     },
     init() {
@@ -297,7 +244,7 @@ export default {
       params.append("our_company_type", 1);
       params.append("product_type", 1);
       params.append("hope_solve_problem", "21");
-   
+
       this.$axios({
         method: "post",
         url: api,
@@ -313,9 +260,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-   /deep/.ivu-modal-mask {
-      background: rgba(0,0,0,0.7)
-    }
+/deep/.ivu-modal-mask {
+  background: rgba(0, 0, 0, 0.7);
+}
 .cooperation {
   min-width: 1500px;
   background: url("../assets/image/sheetbg.png") no-repeat;
@@ -328,7 +275,7 @@ export default {
   //           top: 0;
   //       }
   //   }
- 
+
   .header1 {
     height: 100px;
     // background: url("../assets/image/rhgm.png") no-repeat;
@@ -393,15 +340,15 @@ export default {
         color: #fff;
       }
     }
-  
-    .vertical-center-modal{
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        .ivu-modal{
-            top: 0;
-        }
+    .vertical-center-modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ivu-modal {
+        top: 0;
+      }
     }
     .span_1 {
       display: block;
@@ -442,7 +389,6 @@ export default {
       color: #fff;
       border-radius: 10px;
       cursor: pointer;
-
     }
 
     .content_2 {
