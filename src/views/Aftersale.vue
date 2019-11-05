@@ -7,7 +7,7 @@
       <div class="title">
         <p class="p_1">售后服务</p>
         <p class="p_3"></p>
-        <p class="p_2">智天科技售后客服代表与资深销售顾问联手为您提供专业的购买咨询服务</p>
+        <p class="p_2">智天科技技术工程师以及售后服务团队为您提供专业的售后技术支持以及售后服务监督</p>
       </div>
     </div>
 
@@ -19,18 +19,16 @@
       <div class="content_2">
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/jt.png" alt=""></p>
-          <p class="p_2">工作日 9:00-12:00 14:00-18:00</p>
+          <p class="p_2">工作日 9:00-12:00 13:00-18:00</p>
           <p class="p_2" style="margin-bottom:70px">客服代表一对一即时消息沟通</p>
 
-          <p class="p_3">QQ: 31756964995</p>
+          <p class="p_3">QQ: 3175964995</p>
         </div>
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/zx1.png" alt=""></p>
 
           <p class="p_2" style="margin-bottom:70px">
-            就你感兴趣的产品或解决方案提交咨询
-            问题，我们将安排专人在一个工作日内
-            给您答复
+          您对所购买的产品或解决方案有任何技术问题敬请留言，我们售后服务团队在分析后在一个工作日内给您答复。
           </p>
 
           <span class="content_4" @click="$router.push({name:'AfterConsultation'})">填写咨询表单</span>
@@ -38,9 +36,7 @@
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/dh.png" alt=""></p>
           <p class="p_2" style="margin-bottom:70px">
-            全国统一售前服务热线，若遇线路
-            繁忙，请选择 在线交谈 进行产品
-            和服务咨询
+          您对所使用的产品、解决方案或我们的技术服务，有任何建议和建议，请不吝赐教。
           </p>
 
           <p class="p_3" style="color:#fff">021-22819090</p>

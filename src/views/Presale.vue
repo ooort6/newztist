@@ -14,15 +14,15 @@
     <div class="content1">
       <span class="span_1">
         本页面仅受理售前的购买咨询，如需售后帮助，请点击
-        <a href style="color:#1EF0FE">链接</a>
+        <a href style="color:#1EF0FE" @click="$router.push({name:'Aftersale'})">链接</a>
       </span>
       <div class="content_2">
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/jt.png" alt=""></p>
-          <p class="p_2">工作日 9:00-12:00 14:00-18:00</p>
+          <p class="p_2">工作日 9:00-12:00 13:00-18:00</p>
           <p class="p_2" style="margin-bottom:70px">客服代表一对一即时消息沟通</p>
 
-          <p class="p_3">QQ: 31756964995</p>
+          <p class="p_3">QQ: 3175964995</p>
         </div>
         <div class="content_3">
           <p class="p_1"><img src="@/assets/image/zx.png" alt=""></p>
@@ -36,7 +36,7 @@
           <span class="content_4" @click="$router.push({name:'Consultation'})">填写咨询表单</span>
         </div>
         <div class="content_3">
-          <p class="p_1"><img src="@/assets/image/dh.png" alt=""></p>
+          <p class="p_1"><img src="@/assets/image/dh1.png" alt=""></p>
           <p class="p_2" style="margin-bottom:70px">
             全国统一售前服务热线，若遇线路
             繁忙，请选择 在线交谈 进行产品

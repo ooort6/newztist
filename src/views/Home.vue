@@ -16,8 +16,8 @@
           <span class="span_2">大数据分析</span>
         </p>
         <p class="p3">综合运用网络通信、物联网、GIS、大数据分析以及人工智能技术</p>
-        <div class="btn_1">
-          <span class="span_1">了解详情</span>
+        <div class="btn_1" @click="$router.push({name:'solution'})">
+          <span class="span_1" >了解详情</span>
         </div>
       </div>
     </div>

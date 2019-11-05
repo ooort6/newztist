@@ -20,13 +20,13 @@
         <li><span> <router-link to="/download">资料下载</router-link></span> </li>
    
     </ul>
-    <div class="sj">
+    <!-- <div class="sj">
 <img src="../assets/image/sjj.png" alt="" style="width:100%;margin-right:1%">
 
     </div>
     <span class="span_2">
     ：021-80187116
-    </span>
+    </span> -->
   </div>
 </template>
 
