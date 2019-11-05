@@ -143,9 +143,10 @@ module.exports = {
             changeOrigin: true,
             // ws: true,
             pathRewrite: {
-              '^/user': ''
+              '^/user': 'user'
             }
         }
+        
     
     }
 }

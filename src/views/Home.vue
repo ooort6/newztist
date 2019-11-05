@@ -226,7 +226,7 @@ export default {
 
   .header1 {
     height: 953px;
-    background: url("../assets/image/st.png") no-repeat;
+    background: url("../assets/image/st2.png") no-repeat;
     background-size: 100% 100%;
     // padding-top: 1rem;
 

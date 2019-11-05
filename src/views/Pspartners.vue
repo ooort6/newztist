@@ -260,7 +260,7 @@ export default {
         if (valid) {
           const _this = this;
           let params = new URLSearchParams();
-          const api = "/user/webForm/add";
+          const api = this.$common.getUrl()+"/webForm/add";
           params.append("name", _this.formValidate.name);
           params.append("sex", _this.formValidate.sex);
           params.append("phone", _this.formValidate.phone);
