@@ -269,6 +269,9 @@ export default {
               _this.modal3=true;
               _this.$refs[name].resetFields();
             }
+              else {
+          _this.$Message.info(res.data.message);
+        }
             console.log(res);
           });
 
